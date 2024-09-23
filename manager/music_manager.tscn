@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd4v64j1223y1"]
+
+[ext_resource type="Script" path="res://manager/music_manager.gd" id="1_g8x8q"]
+[ext_resource type="PackedScene" uid="uid://wpfgnqnn0jjq" path="res://component/sound_effect_player.tscn" id="2_j7ij1"]
+
+[node name="MusicManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_g8x8q")
+sound_effect_player = ExtResource("2_j7ij1")
+
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

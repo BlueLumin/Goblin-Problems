@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://jpnjci0pkxcj"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy_movement_component.gd" id="1_rwvp5"]
+
+[node name="EnemyMovementComponent" type="Node2D"]
+script = ExtResource("1_rwvp5")
+
+[node name="RayCastGroup" type="Node2D" parent="."]
+
+[node name="GroundRayCast" type="RayCast2D" parent="RayCastGroup"]
+target_position = Vector2(0, 15)
+collision_mask = 49
+
+[node name="WallRayCast" type="RayCast2D" parent="RayCastGroup"]
+rotation = 4.71239
+target_position = Vector2(0, 15)
+collision_mask = 49
+
+[node name="IdleTimer" type="Timer" parent="."]

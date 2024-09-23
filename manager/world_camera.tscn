@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3yjxx06f4bik"]
+
+[ext_resource type="Script" path="res://manager/world_camera.gd" id="1_1b7an"]
+
+[node name="WorldCamera" type="Camera2D"]
+process_callback = 0
+limit_left = -16
+limit_top = -271
+limit_right = 2530
+limit_bottom = 280
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.6
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("1_1b7an")

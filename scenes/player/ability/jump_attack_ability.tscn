@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1t87ooac12e4"]
+
+[ext_resource type="Script" path="res://scenes/player/ability/jump_attack_ability.gd" id="1_xknw3"]
+
+[node name="JumpAttackAbility" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_xknw3")

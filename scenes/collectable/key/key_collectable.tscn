@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dce2jpv36u2g"]
+
+[ext_resource type="PackedScene" uid="uid://cm31vhqx0v7t5" path="res://component/collectable_component.tscn" id="1_1u6ah"]
+[ext_resource type="Script" path="res://scenes/collectable/collectable_resource.gd" id="1_x4hj7"]
+[ext_resource type="Texture2D" uid="uid://wgta0fb7apeu" path="res://scenes/collectable/key/Key.png" id="2_s8xm1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lednd"]
+radius = 8.0
+
+[node name="KeyCollectable" type="Node2D"]
+script = ExtResource("1_x4hj7")
+collectable_id = "key"
+collectable_name = "Key"
+sound_type = "ToolSound"
+notfication_text = "Picked up the Key!"
+
+[node name="CollectableComponent" parent="." instance=ExtResource("1_1u6ah")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_lednd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s8xm1")
+offset = Vector2(0, -14)
+
+[editable path="CollectableComponent"]

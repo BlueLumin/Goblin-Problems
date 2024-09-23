@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cld1r6yvfi14t"]
+
+[ext_resource type="Script" path="res://manager/scene_manager.gd" id="1_bfee6"]
+[ext_resource type="PackedScene" uid="uid://djtf7607dqq5n" path="res://ui/fade/fade_layer.tscn" id="2_ubh5h"]
+[ext_resource type="PackedScene" uid="uid://cf7egqt3hq5o5" path="res://ui/menu/game_menu.tscn" id="3_jyhga"]
+
+[node name="SceneManager" type="Node2D" groups=["scene_manager"]]
+process_mode = 3
+script = ExtResource("1_bfee6")
+fade_layer = ExtResource("2_ubh5h")
+metadata/_edit_vertical_guides_ = [2530.0, 3075.0]
+
+[node name="CurrentScene" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="GameMenu" parent="CurrentScene" instance=ExtResource("3_jyhga")]

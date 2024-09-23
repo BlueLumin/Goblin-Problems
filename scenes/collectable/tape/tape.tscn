@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://heems0g0ju3y"]
+
+[ext_resource type="Script" path="res://scenes/collectable/collectable_resource.gd" id="1_6cf10"]
+[ext_resource type="Texture2D" uid="uid://ce2elde2j7re4" path="res://scenes/collectable/tape/Tape.png" id="2_peuuc"]
+[ext_resource type="PackedScene" uid="uid://cm31vhqx0v7t5" path="res://component/collectable_component.tscn" id="3_uqqpj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ggni"]
+radius = 24.0832
+
+[node name="Tape" type="Node2D"]
+script = ExtResource("1_6cf10")
+collectable_id = "tape"
+collectable_name = "Tape"
+sound_type = "ToolSound"
+notfication_text = "You picked up some tape!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_peuuc")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_uqqpj")]
+
+[node name="CollectableComponent_CollectableArea#CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-5, 0)
+shape = SubResource("CircleShape2D_1ggni")
+
+[editable path="CollectableComponent"]

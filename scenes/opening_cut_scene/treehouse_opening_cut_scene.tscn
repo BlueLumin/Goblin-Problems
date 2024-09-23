@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=4 uid="uid://b6v58yliw07qr"]
+
+[ext_resource type="Script" path="res://scenes/opening_cut_scene/treehouse_opening_cut_scene.gd" id="1_oqrrf"]
+[ext_resource type="Texture2D" uid="uid://dfl2rn3tw6jrq" path="res://scenes/enviroment/clouds/Clouds1.png" id="2_ogscu"]
+[ext_resource type="Texture2D" uid="uid://blts3qnk5hk45" path="res://scenes/enviroment/clouds/Clouds4.png" id="3_gnpww"]
+[ext_resource type="Texture2D" uid="uid://cwry6nsnl3y4i" path="res://scenes/enviroment/clouds/Clouds3.png" id="4_u6pbm"]
+[ext_resource type="Texture2D" uid="uid://cq5luwwnv05na" path="res://scenes/enviroment/treehouse/Treehouse.png" id="5_dqsin"]
+[ext_resource type="TileSet" uid="uid://4ehgc3x0rgdt" path="res://resource/tile_sets/tile_set.tres" id="6_b8aft"]
+[ext_resource type="Texture2D" uid="uid://0aqbhloa5q5a" path="res://scenes/opening_cut_scene/GoblinsDidIt.png" id="8_d1b2m"]
+[ext_resource type="Texture2D" uid="uid://njgvi7iivvvd" path="res://scenes/opening_cut_scene/WhereWater.png" id="9_e8cf3"]
+[ext_resource type="PackedScene" uid="uid://bghiy60i2pthq" path="res://scenes/opening_cut_scene/opening_scene_player.tscn" id="9_wh4gl"]
+
+[sub_resource type="Animation" id="Animation_cdkyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinsDidIt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhereWater:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5bwde"]
+resource_name = "cut_scene"
+length = 6.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoblinsDidIt:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 4.2, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhereWater:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_cut_scene_finished"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Player:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7dcl"]
+_data = {
+"RESET": SubResource("Animation_cdkyl"),
+"cut_scene": SubResource("Animation_5bwde")
+}
+
+[node name="TreeHouseOpeningCutScene" type="Node"]
+script = ExtResource("1_oqrrf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b7dcl")
+}
+
+[node name="SkyBackground" type="ColorRect" parent="."]
+offset_right = 481.0
+offset_bottom = 289.0
+color = Color(0.964706, 0.909804, 0.803922, 1)
+
+[node name="Clouds" type="Parallax2D" parent="."]
+scroll_offset = Vector2(0, 76)
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(10, 0)
+follow_viewport = false
+
+[node name="Clouds1" type="Sprite2D" parent="Clouds"]
+position = Vector2(431, 48)
+texture = ExtResource("2_ogscu")
+
+[node name="Clouds5" type="Sprite2D" parent="Clouds"]
+position = Vector2(177, 96)
+texture = ExtResource("3_gnpww")
+
+[node name="Clouds3" type="Sprite2D" parent="Clouds"]
+position = Vector2(91, 41)
+texture = ExtResource("4_u6pbm")
+
+[node name="Treehouse" type="Sprite2D" parent="."]
+position = Vector2(77, 35)
+texture = ExtResource("5_dqsin")
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAAdABEAAQAAAAQAAAAdABAAAQAAAAEAAAAdAA8AAQAAAAQAAAAcABEAAQAAAAQAAAAcABAAAQAAAAQAAAAcAA8AAQAAAAQAAAAbABEAAQACAAMAAAAbABAAAQAAAAQAAAAbAA8AAQAAAAQAAAAaABEAAQAAAAMAAAAaABAAAQAAAAQAAAAaAA8AAQAAAAQAAAAZABEAAQABAAEAAAAZABAAAQAAAAQAAAAZAA8AAQAAAAQAAAAYABEAAQACAAIAAAAYABAAAQAAAAQAAAAYAA8AAQACAAEAAAAXABEAAQABAAEAAAAXABAAAQACAAEAAAAXAA8AAQAAAAQAAAAWABEAAQACAAMAAAAWABAAAQAAAAQAAAAWAA8AAQAAAAQAAAAVABEAAQAAAAQAAAAVABAAAQAAAAIAAAAVAA8AAQACAAEAAAAUABEAAQAAAAQAAAAUABAAAQACAAMAAAAUAA8AAQABAAEAAAATABEAAQABAAEAAAATABAAAQAAAAQAAAATAA8AAQAAAAMAAAASABEAAQAAAAQAAAASABAAAQAAAAQAAAASAA8AAQAAAAQAAAARABEAAQAAAAEAAAARABAAAQAAAAQAAAARAA8AAQAAAAQAAAAQABEAAQAAAAQAAAAQABAAAQACAAMAAAAQAA8AAQAAAAQAAAAPABEAAQAAAAQAAAAPABAAAQAAAAQAAAAPAA8AAQAAAAQAAAAOABEAAQAAAAQAAAAOABAAAQAAAAQAAAAOAA8AAQAAAAQAAAANABEAAQACAAIAAAANABAAAQAAAAQAAAANAA8AAQAAAAQAAAAMABEAAQAAAAQAAAAMABAAAQAAAAQAAAAMAA8AAQAAAAQAAAALABEAAQAAAAMAAAALABAAAQABAAIAAAALAA8AAQAAAAQAAAAKABEAAQAAAAEAAAAKABAAAQABAAIAAAAKAA8AAQAAAAQAAAAJABEAAQAAAAQAAAAJABAAAQAAAAQAAAAJAA8AAQACAAEAAAAIABEAAQACAAEAAAAIABAAAQAAAAQAAAAIAA8AAQAAAAIAAAAHABEAAQABAAIAAAAHABAAAQABAAMAAAAHAA8AAQAAAAQAAAAGABEAAQAAAAMAAAAGABAAAQAAAAQAAAAGAA8AAQAAAAQAAAAFABEAAQABAAMAAAAFABAAAQAAAAQAAAAFAA8AAQAAAAQAAAAEABEAAQAAAAQAAAAEABAAAQAAAAQAAAAEAA8AAQAAAAQAAAADABEAAQAAAAQAAAADABAAAQAAAAQAAAADAA8AAQAAAAQAAAACABEAAQAAAAQAAAACABAAAQAAAAQAAAACAA8AAQAAAAQAAAABABEAAQAAAAMAAAABABAAAQAAAAQAAAABAA8AAQAAAAQAAAAAABEAAQAAAAQAAAAAABAAAQABAAEAAAAAAA8AAQAAAAQAAAAJAA4AAQADAAMAAAAKAA4AAQAAAAAAAAALAA4AAQADAAEAAAAMAA4AAQADAAEAAAANAA4AAQADAAMAAAAOAA4AAQAFAAAAAAAPAA4AAQABAAAAAAAQAA4AAQADAAMAAAARAA4AAQAEAAMAAAASAA4AAQAFAAAAAAATAA4AAQADAAMAAAAUAA4AAQAEAAMAAAAVAA4AAQABAAAAAAAWAA4AAQAAAAAAAAAXAA4AAQADAAEAAAAYAA4AAQAGAAMAAAAZAA4AAQAFAAMAAAAaAA4AAQADAAIAAAAbAA4AAQABAAAAAAAcAA4AAQADAAIAAAAdAA4AAQABAAAAAAAIAA4AAQADAAEAAAA=")
+tile_set = ExtResource("6_b8aft")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(121, 187)
+zoom = Vector2(2, 2)
+
+[node name="GoblinsDidIt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(52, 207)
+texture = ExtResource("8_d1b2m")
+
+[node name="WhereWater" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(52, 207)
+texture = ExtResource("9_e8cf3")
+
+[node name="Player" parent="." instance=ExtResource("9_wh4gl")]
+position = Vector2(28, 241)
+scale = Vector2(-1, 1)

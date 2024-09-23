@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://321roht0tgqm"]
+
+[ext_resource type="Texture2D" uid="uid://c0u8u0quuam05" path="res://scenes/enviroment/water_pipe/Droplet.png" id="1_jr5pv"]
+
+[sub_resource type="Curve" id="Curve_xovi8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.80531, 1), -0.160227, -0.160227, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w3r54"]
+curve = SubResource("Curve_xovi8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wfbk0"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.0
+direction = Vector3(0, -1, 0)
+spread = 80.0
+initial_velocity_min = 80.0
+initial_velocity_max = 130.0
+gravity = Vector3(0, 170, 0)
+scale_curve = SubResource("CurveTexture_w3r54")
+
+[node name="WaterPipeGPUParticles" type="GPUParticles2D"]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_wfbk0")
+texture = ExtResource("1_jr5pv")
+lifetime = 1.5

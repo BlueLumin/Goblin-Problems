@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccrbdyfd3qcns"
+path="res://.godot/imported/Three Red Hearts - Princess Quest (No Boing).ogg-57b439eadf2e2c74f0793ffe6e629325.oggvorbisstr"
+
+[deps]
+
+source_file="res://music_and_sounds/music/Three Red Hearts - Princess Quest (No Boing).ogg"
+dest_files=["res://.godot/imported/Three Red Hearts - Princess Quest (No Boing).ogg-57b439eadf2e2c74f0793ffe6e629325.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

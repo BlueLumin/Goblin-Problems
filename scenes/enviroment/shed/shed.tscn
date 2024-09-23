@@ -1,0 +1,340 @@
+[gd_scene load_steps=37 format=3 uid="uid://004t2o7wgmp1"]
+
+[ext_resource type="Texture2D" uid="uid://bb775vdvogalr" path="res://scenes/enviroment/shed/Shed 1.png" id="1_1v153"]
+[ext_resource type="Texture2D" uid="uid://dhkt0pswqr6ua" path="res://scenes/enviroment/shed/Shed 2.png" id="2_h1166"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jagxs"]
+size = Vector2(11, 337)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxb45"]
+size = Vector2(11, 179)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfkft"]
+size = Vector2(2079, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsvng"]
+size = Vector2(2089, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24wsh"]
+size = Vector2(10, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bqsn"]
+size = Vector2(20, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpv22"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhg4p"]
+size = Vector2(6, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aw0y4"]
+radius = 36.0555
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pauhj"]
+size = Vector2(44, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux5tb"]
+size = Vector2(30, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovu60"]
+size = Vector2(152, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbx4d"]
+size = Vector2(97, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqebk"]
+size = Vector2(136, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vp3y"]
+size = Vector2(457, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hoa2j"]
+size = Vector2(25, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k77tl"]
+size = Vector2(59, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8k70"]
+size = Vector2(53, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65168"]
+size = Vector2(176.198, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8a7e"]
+size = Vector2(94, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x31qs"]
+size = Vector2(134, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek4au"]
+size = Vector2(68, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iahe1"]
+size = Vector2(66, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4agk"]
+size = Vector2(192, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46u25"]
+size = Vector2(127, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bdbv"]
+size = Vector2(22, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j02ov"]
+size = Vector2(160, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_schqj"]
+size = Vector2(192, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt551"]
+size = Vector2(66, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2b2o"]
+radius = 11.0
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5811s"]
+size = Vector2(370, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip1t5"]
+size = Vector2(372, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8tny"]
+size = Vector2(65, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34u4d"]
+size = Vector2(23, 44)
+
+[node name="Shed" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Shed1Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_1v153")
+offset = Vector2(0, -264)
+
+[node name="Shed12Sprite" type="Sprite2D" parent="."]
+position = Vector2(1044, 0)
+texture = ExtResource("2_h1166")
+offset = Vector2(0, -264)
+
+[node name="WallCollisonShape" type="CollisionShape2D" parent="."]
+position = Vector2(-271.5, -243.5)
+shape = SubResource("RectangleShape2D_jagxs")
+
+[node name="WallCollisonShape2" type="CollisionShape2D" parent="."]
+position = Vector2(-271.5, -566.5)
+shape = SubResource("RectangleShape2D_wxb45")
+
+[node name="CeilingCollisonShape" type="CollisionShape2D" parent="."]
+position = Vector2(773.5, -526)
+shape = SubResource("RectangleShape2D_dfkft")
+
+[node name="FloorCollisonShape" type="CollisionShape2D" parent="."]
+position = Vector2(767.5, -2)
+shape = SubResource("RectangleShape2D_rsvng")
+
+[node name="FloorRampCollison" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-277, -4, -283, 0, -277, 0)
+
+[node name="SprayCan" type="StaticBody2D" parent="."]
+
+[node name="SprayCanCollisionShape" type="CollisionShape2D" parent="SprayCan"]
+position = Vector2(-210, -16.5)
+shape = SubResource("RectangleShape2D_24wsh")
+
+[node name="SprayCanCollisionShape2" type="CollisionShape2D" parent="SprayCan"]
+position = Vector2(-195, -30)
+shape = SubResource("RectangleShape2D_5bqsn")
+
+[node name="SprayCanCollisionShape3" type="CollisionShape2D" parent="SprayCan"]
+position = Vector2(-195, -57.5)
+shape = SubResource("RectangleShape2D_jpv22")
+
+[node name="SprayCanCollisionShape4" type="CollisionShape2D" parent="SprayCan"]
+position = Vector2(-208, -30.5)
+shape = SubResource("RectangleShape2D_yhg4p")
+
+[node name="LawnMower" type="StaticBody2D" parent="."]
+
+[node name="LawnMowerCollisonShape" type="CollisionShape2D" parent="LawnMower"]
+position = Vector2(-114, -40)
+shape = SubResource("CircleShape2D_aw0y4")
+
+[node name="LawnMowerCollisonShape2" type="CollisionShape2D" parent="LawnMower"]
+position = Vector2(70, -40)
+shape = SubResource("CircleShape2D_aw0y4")
+
+[node name="LawnMowerCollison" type="CollisionPolygon2D" parent="LawnMower"]
+polygon = PackedVector2Array(-89, -64, -56, -98, 5, -98, 268, -343, 276, -343, 276, -334, 20, -87, 39, -78, 48, -68, 39, -23, -83, -23)
+
+[node name="Boxes" type="StaticBody2D" parent="."]
+
+[node name="BoxCollisonShape" type="CollisionShape2D" parent="Boxes"]
+position = Vector2(146, -23)
+shape = SubResource("RectangleShape2D_pauhj")
+
+[node name="BoxCollisonShape2" type="CollisionShape2D" parent="Boxes"]
+position = Vector2(205, -18)
+shape = SubResource("RectangleShape2D_ux5tb")
+
+[node name="BoxCollisionShape3" type="CollisionShape2D" parent="Boxes"]
+position = Vector2(372, -60)
+shape = SubResource("RectangleShape2D_ovu60")
+
+[node name="BoxCollisionShape4" type="CollisionShape2D" parent="Boxes"]
+position = Vector2(360.5, -154)
+shape = SubResource("RectangleShape2D_fbx4d")
+
+[node name="BoxCollisionShape5" type="CollisionShape2D" parent="Boxes"]
+position = Vector2(653, -433.5)
+shape = SubResource("RectangleShape2D_nqebk")
+
+[node name="Shelf" type="StaticBody2D" parent="."]
+
+[node name="ShelfCollisonShape" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(-27.5, -372)
+shape = SubResource("RectangleShape2D_6vp3y")
+
+[node name="JarCollisonShape" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(97.5, -391.5)
+shape = SubResource("RectangleShape2D_hoa2j")
+
+[node name="PicklesCollisonShape" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(10.5, -407.5)
+shape = SubResource("RectangleShape2D_k77tl")
+
+[node name="ShelfBoxCollisonShape" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(-67.5, -386)
+shape = SubResource("RectangleShape2D_x8k70")
+
+[node name="ShelfCollisonShape2" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(382.092, -364.793)
+rotation = 0.058258
+shape = SubResource("RectangleShape2D_65168")
+
+[node name="ShelfCollisonShape3" type="CollisionShape2D" parent="Shelf"]
+position = Vector2(663, -372)
+shape = SubResource("RectangleShape2D_65168")
+
+[node name="WindowSill" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="WindowSillCollisonShape" type="CollisionShape2D" parent="WindowSill"]
+position = Vector2(198, -426)
+shape = SubResource("RectangleShape2D_j8a7e")
+one_way_collision = true
+
+[node name="WindowSillCollisonShape2" type="CollisionShape2D" parent="WindowSill"]
+position = Vector2(841, -427)
+shape = SubResource("RectangleShape2D_j8a7e")
+one_way_collision = true
+
+[node name="WindowSillCollisonShape3" type="CollisionShape2D" parent="WindowSill"]
+position = Vector2(1708, -426)
+shape = SubResource("RectangleShape2D_j8a7e")
+one_way_collision = true
+
+[node name="Boom" type="StaticBody2D" parent="."]
+
+[node name="BroomCollisionPolygon" type="CollisionPolygon2D" parent="Boom"]
+polygon = PackedVector2Array(602, -368, 596, -367, 660, -110, 668, -110)
+
+[node name="Bucket" type="StaticBody2D" parent="."]
+
+[node name="BucketCollisionPolygon" type="CollisionPolygon2D" parent="Bucket"]
+polygon = PackedVector2Array(543, -35, 538, -39, 538, -52, 538, -64, 539, -78, 541, -89, 546, -101, 551, -107, 557, -110, 599, -111, 671, -111, 680, -103, 686, -91, 688, -82, 690, -66, 690, -52, 690, -41, 677, -41, 673, -104, 656, -108, 628, -108, 582, -107, 572, -104, 575, -97, 579, -83, 581, -68, 581, -46, 580, -39, 575, -44, 568, -39, 561, -36, 558, -39, 554, -35)
+
+[node name="BucketFloorCollisionShape" type="CollisionShape2D" parent="Bucket"]
+position = Vector2(621, -6)
+shape = SubResource("RectangleShape2D_x31qs")
+
+[node name="BucketRampCollisionPolygon" type="CollisionPolygon2D" parent="Bucket"]
+polygon = PackedVector2Array(554, -8, 546, -4, 554, -4)
+
+[node name="BucketRampCollisionPolygon2" type="CollisionPolygon2D" parent="Bucket"]
+polygon = PackedVector2Array(688, -8, 697, -4, 688, -4)
+
+[node name="WaterMeter" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="WaterMeterCollisionShape1" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -23)
+shape = SubResource("RectangleShape2D_ek4au")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape2" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -181)
+shape = SubResource("RectangleShape2D_iahe1")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape3" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -240.5)
+shape = SubResource("RectangleShape2D_r4agk")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape4" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1479.5, -270)
+shape = SubResource("RectangleShape2D_46u25")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape5" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1490, -321.5)
+shape = SubResource("RectangleShape2D_1bdbv")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape6" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -353)
+shape = SubResource("RectangleShape2D_j02ov")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape7" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -428.5)
+shape = SubResource("RectangleShape2D_schqj")
+one_way_collision = true
+
+[node name="WaterMeterCollisionShape8" type="CollisionShape2D" parent="WaterMeter"]
+position = Vector2(1480, -461)
+shape = SubResource("RectangleShape2D_kt551")
+one_way_collision = true
+
+[node name="DoorKnob" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorKnob"]
+position = Vector2(1788, -287)
+shape = SubResource("CapsuleShape2D_s2b2o")
+
+[node name="ToolRackShelf" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="ToolRackCollisionShape" type="CollisionShape2D" parent="ToolRackShelf"]
+position = Vector2(1121, -439)
+shape = SubResource("RectangleShape2D_5811s")
+one_way_collision = true
+
+[node name="ToolRackCollisionShape2" type="CollisionShape2D" parent="ToolRackShelf"]
+position = Vector2(1121, -158.5)
+shape = SubResource("RectangleShape2D_ip1t5")
+one_way_collision = true
+
+[node name="Tools" type="StaticBody2D" parent="."]
+
+[node name="ToolCollisionShape" type="CollisionShape2D" parent="Tools"]
+position = Vector2(984.5, -470.5)
+shape = SubResource("RectangleShape2D_d8tny")
+
+[node name="ToolCollisionShape2" type="CollisionShape2D" parent="Tools"]
+position = Vector2(1229.5, -462)
+shape = SubResource("RectangleShape2D_34u4d")
+
+[node name="ToolCollisionPolygon" type="CollisionPolygon2D" parent="Tools"]
+polygon = PackedVector2Array(1112, -346, 1108, -345, 1106, -341, 1105, -338, 1105, -244, 1103, -239, 1101, -236, 1097, -235, 1092, -237, 1090, -238, 1085, -238, 1082, -236, 1082, -224, 1085, -220, 1091, -220, 1095, -223, 1098, -223, 1103, -221, 1118, -221, 1131, -225, 1146, -240, 1145, -242, 1142, -242, 1129, -236, 1123, -235, 1118, -238, 1116, -242, 1115, -244, 1116, -294, 1119, -303, 1119, -341, 1115, -345)
+
+[node name="ToolCollisionPolygon2" type="CollisionPolygon2D" parent="Tools"]
+polygon = PackedVector2Array(1004, -294, 997, -294, 995, -293, 995, -223, 998, -220, 1003, -220, 1006, -223, 1006, -293)
+
+[node name="ToolCollisionPolygon3" type="CollisionPolygon2D" parent="Tools"]
+polygon = PackedVector2Array(981, -408, 988, -408, 990, -406, 990, -385, 986, -382, 986, -337, 985, -336, 983, -337, 983, -382, 979, -385, 979, -406)

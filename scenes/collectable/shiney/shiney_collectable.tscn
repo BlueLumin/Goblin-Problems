@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://4c8mhpexmex2"]
+
+[ext_resource type="Script" path="res://scenes/collectable/collectable_resource.gd" id="1_cv0p5"]
+[ext_resource type="Texture2D" uid="uid://b15bxi7ftm3by" path="res://scenes/collectable/shiney/Shiny.png" id="2_khsof"]
+[ext_resource type="PackedScene" uid="uid://cm31vhqx0v7t5" path="res://component/collectable_component.tscn" id="3_5p2ge"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvr4y"]
+radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt3wu"]
+atlas = ExtResource("2_khsof")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osy6u"]
+atlas = ExtResource("2_khsof")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhj8e"]
+atlas = ExtResource("2_khsof")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akk4q"]
+atlas = ExtResource("2_khsof")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg3jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt3wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osy6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhj8e")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_akk4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShineyCollectable" type="Node2D"]
+script = ExtResource("1_cv0p5")
+collectable_id = "shiney"
+collectable_name = "Shiney"
+sound_type = "ShinySound"
+notfication_text = "You found a Shiny!"
+
+[node name="CollectableComponent" parent="." instance=ExtResource("3_5p2ge")]
+
+[node name="CollectableComponent_CollectableArea#CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_wvr4y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dg3jl")
+autoplay = "default"
+frame = 1
+frame_progress = 0.562559
+offset = Vector2(0, -12)
+
+[editable path="CollectableComponent"]

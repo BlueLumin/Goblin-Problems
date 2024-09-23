@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=4 uid="uid://cf7egqt3hq5o5"]
+
+[ext_resource type="Script" path="res://ui/menu/game_menu.gd" id="1_hjwm6"]
+[ext_resource type="Texture2D" uid="uid://c6mdmcx4celv2" path="res://ui/menu/Main Menu Logo.png" id="2_djl1k"]
+[ext_resource type="TileSet" uid="uid://tt44vyq0kfp1" path="res://resource/tile_sets/hud_tile_set.tres" id="2_sm5ob"]
+[ext_resource type="Texture2D" uid="uid://75lor1ak8wo8" path="res://ui/icon/HatIconRed.png" id="3_tqs28"]
+[ext_resource type="Texture2D" uid="uid://dtqryfu5h4rrr" path="res://scenes/player/gnome.png" id="5_44t8m"]
+[ext_resource type="FontFile" uid="uid://v5i8n30opqgq" path="res://resource/theme/ClassicShit.ttf" id="6_xygf7"]
+[ext_resource type="Script" path="res://ui/menu/rich_text_label.gd" id="7_ntrqr"]
+
+[node name="GameMenu" type="CanvasLayer"]
+script = ExtResource("1_hjwm6")
+
+[node name="BackgroundColour" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.964706, 0.909804, 0.803922, 1)
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="BackgroundTileSet" type="TileMapLayer" parent="MainMenu"]
+position = Vector2(2, 9)
+tile_map_data = PackedByteArray("AAAIAAgAAAABAAAAAAAJAAgAAAABAAAAAAAKAAgAAAABAAAAAAALAAgAAAABAAAAAAAMAAgAAAABAAAAAAANAAgAAAABAAAAAAAOAAgAAAABAAAAAAAPAAgAAAABAAAAAAAQAAgAAAABAAAAAAARAAgAAAABAAAAAAASAAgAAAABAAAAAAATAAgAAAABAAAAAAAUAAgAAAABAAAAAAAVAAgAAAABAAAAAAAVAAwAAAABAAIAAAAUAAwAAAABAAIAAAATAAwAAAABAAIAAAASAAwAAAABAAIAAAARAAwAAAABAAIAAAAQAAwAAAABAAIAAAAPAAwAAAABAAIAAAAOAAwAAAABAAIAAAANAAwAAAABAAIAAAAMAAwAAAABAAIAAAALAAwAAAABAAIAAAAKAAwAAAABAAIAAAAJAAwAAAABAAIAAAAIAAwAAAABAAIAAAAWAAgAAAABAAAAAAAWAAwAAAABAAIAAAAXAAgAAAACAAAAAAAXAAkAAAACAAEAAAAXAAoAAAACAAEAAAAXAAsAAAACAAEAAAAXAAwAAAACAAIAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAEAAAAHAAoAAAAAAAEAAAAHAAsAAAAAAAEAAAAHAAwAAAAAAAIAAAA=")
+tile_set = ExtResource("2_sm5ob")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 25.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "PLAY"
+icon = ExtResource("3_tqs28")
+
+[node name="CreditButton" type="Button" parent="MainMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+icon = ExtResource("3_tqs28")
+
+[node name="TitleMarginContainer" type="MarginContainer" parent="MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_right = 163.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/TitleMarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_djl1k")
+
+[node name="Credits" type="CanvasLayer" parent="."]
+offset = Vector2(-500, 0)
+transform = Transform2D(1, 0, 0, 1, -500, 0)
+
+[node name="BackgroundTileSet" type="TileMapLayer" parent="Credits"]
+position = Vector2(5, 9)
+tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAAAAWAAMAAAACAAAAAAAWAA4AAAACAAIAAAAGAA4AAAAAAAIAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAALAAMAAAABAAAAAAAMAAMAAAABAAAAAAANAAMAAAABAAAAAAAOAAMAAAABAAAAAAAPAAMAAAABAAAAAAAQAAMAAAABAAAAAAARAAMAAAABAAAAAAASAAMAAAABAAAAAAATAAMAAAABAAAAAAAUAAMAAAABAAAAAAAVAAMAAAABAAAAAAAWAAQAAAACAAEAAAAWAAUAAAACAAEAAAAWAAYAAAACAAEAAAAWAAcAAAACAAEAAAAWAAgAAAACAAEAAAAWAAkAAAACAAEAAAAWAAoAAAACAAEAAAAWAAsAAAACAAEAAAAWAAwAAAACAAEAAAAWAA0AAAACAAEAAAAGAAQAAAAAAAEAAAAGAAUAAAAAAAEAAAAGAAYAAAAAAAEAAAAGAAcAAAAAAAEAAAAGAAgAAAAAAAEAAAAGAAkAAAAAAAEAAAAGAAoAAAAAAAEAAAAGAAsAAAAAAAEAAAAGAAwAAAAAAAEAAAAGAA0AAAAAAAEAAAAHAA4AAAABAAIAAAAIAA4AAAABAAIAAAAJAA4AAAABAAIAAAAKAA4AAAABAAIAAAALAA4AAAABAAIAAAAMAA4AAAABAAIAAAANAA4AAAABAAIAAAAOAA4AAAABAAIAAAAPAA4AAAABAAIAAAAQAA4AAAABAAIAAAARAA4AAAABAAIAAAASAA4AAAABAAIAAAATAA4AAAABAAIAAAAUAA4AAAABAAIAAAAVAA4AAAABAAIAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAAHAAgAAAABAAEAAAAHAAkAAAABAAEAAAAHAAoAAAABAAEAAAAHAAsAAAABAAEAAAAHAAwAAAABAAEAAAAHAA0AAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAIAAYAAAABAAEAAAAIAAcAAAABAAEAAAAIAAgAAAABAAEAAAAIAAkAAAABAAEAAAAIAAoAAAABAAEAAAAIAAsAAAABAAEAAAAIAAwAAAABAAEAAAAIAA0AAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAABAAEAAAAJAAkAAAABAAEAAAAJAAoAAAABAAEAAAAJAAsAAAABAAEAAAAJAAwAAAABAAEAAAAJAA0AAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAAKAAgAAAABAAEAAAAKAAkAAAABAAEAAAAKAAoAAAABAAEAAAAKAAsAAAABAAEAAAAKAAwAAAABAAEAAAAKAA0AAAABAAEAAAALAAQAAAABAAEAAAALAAUAAAABAAEAAAALAAYAAAABAAEAAAALAAcAAAABAAEAAAALAAgAAAABAAEAAAALAAkAAAABAAEAAAALAAoAAAABAAEAAAALAAsAAAABAAEAAAALAAwAAAABAAEAAAALAA0AAAABAAEAAAAMAAQAAAABAAEAAAAMAAUAAAABAAEAAAAMAAYAAAABAAEAAAAMAAcAAAABAAEAAAAMAAgAAAABAAEAAAAMAAkAAAABAAEAAAAMAAoAAAABAAEAAAAMAAsAAAABAAEAAAAMAAwAAAABAAEAAAAMAA0AAAABAAEAAAANAAQAAAABAAEAAAANAAUAAAABAAEAAAANAAYAAAABAAEAAAANAAcAAAABAAEAAAANAAgAAAABAAEAAAANAAkAAAABAAEAAAANAAoAAAABAAEAAAANAAsAAAABAAEAAAANAAwAAAABAAEAAAANAA0AAAABAAEAAAAOAAQAAAABAAEAAAAOAAUAAAABAAEAAAAOAAYAAAABAAEAAAAOAAcAAAABAAEAAAAOAAgAAAABAAEAAAAOAAkAAAABAAEAAAAOAAoAAAABAAEAAAAOAAsAAAABAAEAAAAOAAwAAAABAAEAAAAOAA0AAAABAAEAAAAPAAQAAAABAAEAAAAPAAUAAAABAAEAAAAPAAYAAAABAAEAAAAPAAcAAAABAAEAAAAPAAgAAAABAAEAAAAPAAkAAAABAAEAAAAPAAoAAAABAAEAAAAPAAsAAAABAAEAAAAPAAwAAAABAAEAAAAPAA0AAAABAAEAAAAQAAQAAAABAAEAAAAQAAUAAAABAAEAAAAQAAYAAAABAAEAAAAQAAcAAAABAAEAAAAQAAgAAAABAAEAAAAQAAkAAAABAAEAAAAQAAoAAAABAAEAAAAQAAsAAAABAAEAAAAQAAwAAAABAAEAAAAQAA0AAAABAAEAAAARAAQAAAABAAEAAAARAAUAAAABAAEAAAARAAYAAAABAAEAAAARAAcAAAABAAEAAAARAAgAAAABAAEAAAARAAkAAAABAAEAAAARAAoAAAABAAEAAAARAAsAAAABAAEAAAARAAwAAAABAAEAAAARAA0AAAABAAEAAAASAAQAAAABAAEAAAASAAUAAAABAAEAAAASAAYAAAABAAEAAAASAAcAAAABAAEAAAASAAgAAAABAAEAAAASAAkAAAABAAEAAAASAAoAAAABAAEAAAASAAsAAAABAAEAAAASAAwAAAABAAEAAAASAA0AAAABAAEAAAATAAQAAAABAAEAAAATAAUAAAABAAEAAAATAAYAAAABAAEAAAATAAcAAAABAAEAAAATAAgAAAABAAEAAAATAAkAAAABAAEAAAATAAoAAAABAAEAAAATAAsAAAABAAEAAAATAAwAAAABAAEAAAATAA0AAAABAAEAAAAUAAQAAAABAAEAAAAUAAUAAAABAAEAAAAUAAYAAAABAAEAAAAUAAcAAAABAAEAAAAUAAgAAAABAAEAAAAUAAkAAAABAAEAAAAUAAoAAAABAAEAAAAUAAsAAAABAAEAAAAUAAwAAAABAAEAAAAUAA0AAAABAAEAAAAVAAQAAAABAAEAAAAVAAUAAAABAAEAAAAVAAYAAAABAAEAAAAVAAcAAAABAAEAAAAVAAgAAAABAAEAAAAVAAkAAAABAAEAAAAVAAoAAAABAAEAAAAVAAsAAAABAAEAAAAVAAwAAAABAAEAAAAVAA0AAAABAAEAAAA=")
+tile_set = ExtResource("2_sm5ob")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GnomeIcon" type="TextureRect" parent="Credits/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("5_44t8m")
+stretch_mode = 3
+
+[node name="BackButton" type="Button" parent="Credits/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "BACK"
+icon = ExtResource("3_tqs28")
+
+[node name="TextContainer" type="MarginContainer" parent="Credits"]
+custom_minimum_size = Vector2(230, 190)
+offset_left = 125.0
+offset_top = 77.0
+offset_right = 448.0
+offset_bottom = 292.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/TextContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="Credits/TextContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.0235294, 0.054902, 0.0901961, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_xygf7")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/TextContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.0235294, 0.054902, 0.0901961, 1)
+theme_override_fonts/normal_font = ExtResource("6_xygf7")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Game Developer - [url=\"https://bluelumin.itch.io/\"]BlueLumin[/url]
+
+Art - [url=\"https://2bitdream.carrd.co/\"]2bitdream[/url]
+
+
+- External Assets -
+
+Music: [url=\"https://itch.io/profile/tallbeard\"]Tallbeard Studios[/url]
+SFX:  [url=\"https://ivyism.itch.io/\"]ivyism[/url], [url=\"https://flvffywvffy.itch.io/\"]flvffywvffy[/url], and [url=\"https://hunteraudio.itch.io/\"]Hunter Audio Production[/url].
+Fonts: [url=\"https://ninjikin.itch.io/\"]SciGho[/url] and [url=\"https://nimblebeastscollective.itch.io/\"]Nimble Beasts Collective[/url]."
+fit_content = true
+script = ExtResource("7_ntrqr")
+
+[connection signal="meta_clicked" from="Credits/TextContainer/VBoxContainer/RichTextLabel" to="Credits/TextContainer/VBoxContainer/RichTextLabel" method="meta_clicked"]

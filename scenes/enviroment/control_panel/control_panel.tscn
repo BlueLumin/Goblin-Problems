@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://de3y36th23emj"]
+
+[ext_resource type="Texture2D" uid="uid://cfjhawn3ymci1" path="res://scenes/enviroment/control_panel/Control Panel.png" id="1_2lvcr"]
+[ext_resource type="PackedScene" uid="uid://cqbriiim2ag1p" path="res://component/interactable_component.tscn" id="2_6y1dc"]
+[ext_resource type="Script" path="res://scenes/enviroment/control_panel/control_panel.gd" id="2_st31e"]
+
+[sub_resource type="Animation" id="Animation_jc4ie"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutOfOrderLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ef7rl"]
+resource_name = "flash"
+length = 0.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutOfOrderLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(2.37841, 4),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bannl"]
+_data = {
+"RESET": SubResource("Animation_jc4ie"),
+"flash": SubResource("Animation_ef7rl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dxub"]
+size = Vector2(22, 42.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_420am"]
+size = Vector2(15.5, 35)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmt82"]
+
+[node name="ControlPanel" type="Sprite2D"]
+texture = ExtResource("1_2lvcr")
+script = ExtResource("2_st31e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bannl")
+}
+autoplay = "flash"
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_6y1dc")]
+position = Vector2(45, 0)
+object_id = "control_panel"
+cannot_interact_message = "Cannot activate with the water pipe still leaking! Try patching the pipe up first."
+on_interact_message = "The control panel has been turned back on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-19, 3)
+shape = SubResource("RectangleShape2D_1dxub")
+
+[node name="LeverDown" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="DownCollisionShape2D" type="CollisionShape2D" parent="LeverDown"]
+position = Vector2(44.25, 3)
+shape = SubResource("RectangleShape2D_420am")
+
+[node name="LeverUp" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="UpCollisionShape2D" type="CollisionShape2D" parent="LeverUp"]
+position = Vector2(44.25, 3)
+shape = SubResource("RectangleShape2D_420am")
+
+[node name="UpCollisionShape2D2" type="CollisionShape2D" parent="LeverUp"]
+position = Vector2(44, -21)
+shape = SubResource("CircleShape2D_hmt82")
+
+[node name="OutOfOrderLabel" type="Label" parent="."]
+offset_left = -74.0
+offset_top = -105.0
+offset_right = 76.0
+offset_bottom = -71.0
+theme_override_font_sizes/font_size = 16
+text = "OUT OF ORDER"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

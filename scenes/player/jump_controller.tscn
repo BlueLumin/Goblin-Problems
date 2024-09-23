@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dby5seylq0vd"]
+
+[ext_resource type="Script" path="res://scenes/player/jump_controller.gd" id="1_dph4d"]
+
+[node name="JumpController" type="Node"]
+script = ExtResource("1_dph4d")
+
+[node name="JumpWindowTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

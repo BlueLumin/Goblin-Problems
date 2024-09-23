@@ -1,0 +1,2 @@
+extends HitBoxComponent
+class_name HazardComponent

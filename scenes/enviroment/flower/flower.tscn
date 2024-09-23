@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7kokgi7nrcym"]
+
+[ext_resource type="Texture2D" uid="uid://cxdripwqukd77" path="res://scenes/enviroment/flower/Flowers.png" id="1_rsm1y"]
+
+[node name="Flower" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rsm1y")
+offset = Vector2(0, -130)
+
+[node name="FlowerCollisionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-86, -157, -77, -162, -61, -162, -39, -148, -39, -141, -55, -153, -78, -152)
+one_way_collision = true
+
+[node name="FlowerCollisionPolygon2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -122, 6, -128, 21, -127, 31, -123, 23, -120)
+one_way_collision = true
+
+[node name="FlowerCollisionPolygon3" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -166, 13, -174, 30, -176, 41, -170)
+one_way_collision = true
+
+[node name="FlowerCollisionPolygon4" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-42, -86, -57, -89, -72, -87, -81, -83)
+one_way_collision = true
+
+[node name="FlowerCollisionPolygon5" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, -65, 19, -64, 32, -55, -3, -59)
+one_way_collision = true

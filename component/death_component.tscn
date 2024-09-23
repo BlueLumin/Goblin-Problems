@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci5di80sqswcy"]
+
+[ext_resource type="Script" path="res://component/death_component.gd" id="1_ejgop"]
+[ext_resource type="Material" uid="uid://bhraecg1cwiy1" path="res://resource/death_component_particle.tres" id="2_b1n25"]
+
+[sub_resource type="Animation" id="Animation_qxp60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrimaryGPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hu8q2"]
+resource_name = "primary_particle"
+length = 2.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrimaryGPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ppwq5"]
+_data = {
+"RESET": SubResource("Animation_qxp60"),
+"primary_particle": SubResource("Animation_hu8q2")
+}
+
+[sub_resource type="Animation" id="Animation_y7cob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SecondaryGPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4gwny"]
+resource_name = "secondary_particle"
+length = 2.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SecondaryGPUParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxmey"]
+_data = {
+"RESET": SubResource("Animation_y7cob"),
+"secondary_particle": SubResource("Animation_4gwny")
+}
+
+[node name="DeathComponent" type="Node2D"]
+script = ExtResource("1_ejgop")
+
+[node name="PrimaryGPUParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = ExtResource("2_b1n25")
+lifetime = 2.0
+one_shot = true
+
+[node name="SecondaryGPUParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -9)
+emitting = false
+amount = 1
+process_material = ExtResource("2_b1n25")
+lifetime = 2.0
+one_shot = true
+
+[node name="PrimaryAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ppwq5")
+}
+
+[node name="SecondaryAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nxmey")
+}

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1wmar1du8vxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6eece"]
+size = Vector2(4, 20)
+
+[node name="EnemyCollisionMarker" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_6eece")
+debug_color = Color(0.866282, 0.299075, 0.49911, 0.42)

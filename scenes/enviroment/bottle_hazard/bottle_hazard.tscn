@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0fmfu8ysajox"]
+
+[ext_resource type="Texture2D" uid="uid://3msegjnklj0h" path="res://scenes/enviroment/bottle_hazard/Bottle Hazard.png" id="1_3egp5"]
+[ext_resource type="PackedScene" uid="uid://bgccprl2pqnyo" path="res://scenes/component/hazard_component.tscn" id="2_gyaw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8rls"]
+size = Vector2(71, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcvek"]
+size = Vector2(40, 7.5)
+
+[node name="BottleHazard" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3egp5")
+offset = Vector2(0, -17)
+
+[node name="HazardComponent" parent="." instance=ExtResource("2_gyaw6")]
+position = Vector2(27, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardComponent"]
+position = Vector2(-1.5, -5.5)
+shape = SubResource("RectangleShape2D_f8rls")
+
+[node name="BottleCollisonPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-99, -24, -69, -25, -53, -34, -21, -34, -13, -28, -10, -5, -10, -1, -99, 0, -88, -11, -100, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(81, -3.25)
+shape = SubResource("RectangleShape2D_fcvek")

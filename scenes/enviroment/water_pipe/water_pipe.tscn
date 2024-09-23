@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://br0nsyaa12cyr"]
+
+[ext_resource type="Script" path="res://scenes/enviroment/water_pipe/water_pipe.gd" id="1_2ufth"]
+[ext_resource type="PackedScene" uid="uid://321roht0tgqm" path="res://scenes/enviroment/water_pipe/water_pipe_gpu_particles.tscn" id="1_8ilja"]
+[ext_resource type="PackedScene" uid="uid://cqbriiim2ag1p" path="res://component/interactable_component.tscn" id="1_34l4q"]
+[ext_resource type="Texture2D" uid="uid://dgoeuxqsybay7" path="res://scenes/enviroment/water_pipe/Tape Fix.png" id="2_2isii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntqsd"]
+size = Vector2(61, 49.5)
+
+[node name="WaterPipe" type="Node2D"]
+script = ExtResource("1_2ufth")
+
+[node name="WaterPipeGPUParticles" parent="." instance=ExtResource("1_8ilja")]
+emitting = false
+
+[node name="TapeFixSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_2isii")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("1_34l4q")]
+object_id = "water_pipe"
+cannot_interact_message = "You don't have anything to patch up the leak with..."
+on_interact_message = "The leak has been repaired!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-0.5, 24.5)
+shape = SubResource("RectangleShape2D_ntqsd")
