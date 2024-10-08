@@ -1,3 +1,4 @@
+# Handles all global events in game. Is a singleton that can be used to emit signals across scenes.
 extends Node
 
 signal collectable_picked_up(collectable: CollectableResource)

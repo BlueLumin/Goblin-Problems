@@ -1,5 +1,8 @@
+# A component that can be added as a child to a node.
+# Handles the tutorial collision area. Displays an assigned tutorial when the player enters the area.
 extends Area2D
 
+# Set in editor to the name of the tutorial as defined in the GlobalVariables singleton.
 @export var tutorial : String
 
 var tutorial_manager : TutorialManager
@@ -25,6 +28,7 @@ func get_tutorial_manager():
 		return null
 
 
+# If the body in on_body_entered is the Player, then call the start_tutorial function from the tutorial_manager and pass through the assigned tutorial.
 func on_body_entered(body: Node2D):
 	if not body is Player:
 		return

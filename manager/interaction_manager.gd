@@ -1,11 +1,12 @@
+# Handles the player interacting with an InteractableComponent. 
 extends Node
 class_name InteractiveManager
 
-@onready var interact_sprite: Sprite2D = $InteractSprite
+@onready var interact_sprite: Sprite2D = $InteractSprite # The "thought bubble" sprite that indicate the player can interact.
 @onready var player : Player
 
-var active_areas : Array = []
-var can_interact : bool = true
+var active_areas : Array = [] # Stores all the InteractableComponents that are within range.
+var can_interact : bool = true # Can the player currently interact?
 
 
 func _physics_process(delta: float) -> void:

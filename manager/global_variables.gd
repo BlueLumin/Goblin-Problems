@@ -1,15 +1,18 @@
+# Is a singleton that stores global variables that can be accessed across scenes.
 extends Node
 
+# Preload the death and water particles.
 var death_particles = preload("res://resource/death_component_particle.tres")
 var water_particles = preload("res://scenes/enviroment/water_pipe/water_pipe_gpu_particles.tres")
 
-var cut_scene_completed : bool = false
+var cut_scene_completed : bool = false # Has the beginning cut scene been completed. Stops the player needing to re-watch it on restarting.
 
 # END GAME VARIABLES
 var total_shinies: int
 var shinies_collected: int
 var goblins_left: int
 
+# Tutorials that are used in the TutorialManager.
 var tutorials : Dictionary = {
 	"movement": {
 		"completed": false,
