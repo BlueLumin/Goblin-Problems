@@ -1,3 +1,4 @@
+# The root node that handles other scenes as well scene change requests. 
 extends Node2D
 class_name SceneManager
 

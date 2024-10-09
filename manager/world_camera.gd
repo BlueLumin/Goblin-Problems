@@ -1,3 +1,4 @@
+# The game camera that can focus on a designated target.
 extends Camera2D
 class_name WorldCamera
 

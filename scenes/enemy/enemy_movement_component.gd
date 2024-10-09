@@ -1,3 +1,5 @@
+# A component that can be added as a child to a node.
+# Handles the movement and movement state of an enemy.
 extends Node2D
 class_name EnemyMovementComponent
 

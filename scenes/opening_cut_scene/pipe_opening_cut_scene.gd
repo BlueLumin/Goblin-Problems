@@ -1,3 +1,4 @@
+# Controls the opening cut scene (goblins breaking the water pipe).
 extends Node2D
 
 var scene_manager : SceneManager

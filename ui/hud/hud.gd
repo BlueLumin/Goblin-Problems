@@ -1,3 +1,4 @@
+# Handles the HUD display.
 extends CanvasLayer
 
 @onready var notification_container: VBoxContainer = $NotificationContainer/VBoxContainer

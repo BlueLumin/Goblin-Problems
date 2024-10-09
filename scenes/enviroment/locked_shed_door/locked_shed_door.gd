@@ -1,3 +1,4 @@
+# Handles the interaction and unlocking of the shed door.
 extends StaticBody2D
 
 @onready var unlock_area: Area2D = $UnlockArea
@@ -14,13 +15,13 @@ func _ready() -> void:
 
 
 func check_for_key() -> bool:
-	# Check for the "key" Collectable id in the current_collectables Dictionary
+	# Check for "key" collectable id in the current_collectables Dictionary.
 	return collectable_manager.current_collectables.has("key")
 
 
 func unlock_door():
 	animation_player.play("fade")
-	GameEvents.emit_start_cut_scene(GameEvents.cut_scenes.DOOR) # Signal the cut scene manager to begin the cut scene
+	GameEvents.emit_start_cut_scene(GameEvents.cut_scenes.DOOR) # Signal the cut scene manager to begin the cut scene.
 	hud.create_notification_text("The shed door has been unlocked!")
 	MusicManager.play_sound_effect(MusicManager.enviroment["DoorUnlock"])
 

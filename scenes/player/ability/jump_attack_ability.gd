@@ -1,3 +1,4 @@
+# Handles the Player jump attack ability.
 extends HitBoxComponent
 
 @export var jump_controller : JumpController ## The JumpController of the player.

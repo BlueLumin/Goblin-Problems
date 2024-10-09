@@ -1,3 +1,5 @@
+# A component that can be added as a child to a node.
+# Allows the node to be collectable by the player.
 extends Area2D
 
 var collectable : CollectableResource

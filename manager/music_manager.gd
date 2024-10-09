@@ -1,3 +1,4 @@
+# Handles playing music and sound effects and can be used from other scenes.
 extends Node
 
 @export var sound_effect_player: PackedScene

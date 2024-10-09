@@ -1,3 +1,4 @@
+# The object spawned by the MusicManager. Handles destorying the node once the sound effect is finished.
 extends AudioStreamPlayer
 class_name SoundEffectPlayer
 

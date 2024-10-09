@@ -1,3 +1,4 @@
+# Handles the roll ability of the Player.
 extends Node2D
 class_name RollAbility
 

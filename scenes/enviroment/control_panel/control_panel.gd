@@ -1,3 +1,4 @@
+# Handles the interaction and state of the control panel.
 extends Sprite2D
 
 @onready var interactable_component: InteractableComponent = $InteractableComponent

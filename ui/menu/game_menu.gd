@@ -1,3 +1,4 @@
+# The GameMenu script.
 extends CanvasLayer
 
 # MAIN MENU

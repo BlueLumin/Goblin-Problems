@@ -1,3 +1,4 @@
+# Handles the hiding of the foreground panel when the player enters the area.
 extends Sprite2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

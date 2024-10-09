@@ -1,3 +1,4 @@
+# The root script for the Player.
 extends CharacterBody2D
 class_name Player
 
@@ -26,7 +27,7 @@ var is_rolling : bool = false
 var can_roll : bool = true
 
 var is_active : bool = false:
-	set(value): # Toggle hurt_box monitoring with is_active so player doesn't take damage when not active
+	set(value): # Toggle hurt_box monitoring with is_active so player doesn't take damage when not active.
 		hurt_box.monitoring = value
 		is_active = value
  
@@ -49,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	if is_active:
 		if player_input:
 			move(delta)
-	else: # If not active, ensure one way platforms are solid
+	else: # If not active, ensure one way platforms are solid.
 		set_collision_mask_value(6, true)
 		velocity.x = 0
 	
@@ -64,15 +65,15 @@ func get_input():
 
 func move(delta: float) -> void:
 	get_input()
-	# Left and right movement
-	if !is_rolling: # Only move at normal speed if not rolling
+	# Left and right movement.
+	if !is_rolling: # Move at normal speed if not rolling.
 		if direction:
 			var target_velocity_x : float = direction * max_speed
 			velocity.x = lerp(velocity.x, target_velocity_x, 1.0 - exp(-delta * acceleration))
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction)
 	
-	# Fall through one way platforms
+	# Fall through one way platforms.
 	if Input.is_action_just_pressed("down"):
 		set_collision_mask_value(6, false)
 	
@@ -87,7 +88,7 @@ func play_animation_walking():
 		elif velocity.x == 0 and is_on_floor():
 			animation_state_machine.travel("idle")
 	
-	# Flip sprite
+	# Flip sprite.
 	if direction != 0:
 		visuals.scale.x = sign(direction)
 
@@ -108,29 +109,29 @@ func emit_health_updated(new_value: int):
 	health_updated.emit(new_value)
 
 
-# Bounce away from HitBoxCollison on taking damage
+# Bounce away from HitBoxCollison on taking damage.
 func on_move_away_from_damage(collison_position : Vector2):
 	if not is_rolling:
 		
-		var current_velocity = velocity # Store the current velocity (direction the player is moving)
-		var target_velocity : Vector2 # The target speed on the x and y axis we want the player to move
+		var current_velocity = velocity # Store the current velocity (direction the player is moving).
+		var target_velocity : Vector2 # The target speed on the x and y axis we want the player to move.
 		
-		player_input = false # Disable the player's input
+		player_input = false # Disable the player's input.
 		
-		var angle_to_collison = position.angle_to_point(collison_position) # The angle from the player to the collison
-		var target_direction = position.direction_to(collison_position) * -1 # For if the player has no velocity, get the directino to the collison and reverse it
+		var angle_to_collison = position.angle_to_point(collison_position) # The angle from the player to the collison.
+		var target_direction = position.direction_to(collison_position) * -1 # For if the player has no velocity, get the direction to the collison and reverse it.
 		
-		if velocity.length() != 0: # Check if the player is moving
-			if velocity.y == 0: # Check if the player is not moving on the y axis
-				target_velocity = Vector2(current_velocity.x, current_velocity.y) # Target velocity is the current velocity.x amplified for knockback
+		if velocity.length() != 0: # Check if the player is moving.
+			if velocity.y == 0: # Check if the player is not moving on the y axis.
+				target_velocity = Vector2(current_velocity.x, current_velocity.y) # Target velocity is the current velocity.x amplified for knockback.
 				velocity = target_velocity.rotated(angle_to_collison)
-			else: # If the player is moving on the y axis (so is jumping or falling)
-				target_velocity = Vector2(0, 350) # Target velocity is only on the y axis (bounce upwards)
+			else: # If the player is moving on the y axis (is jumping or falling).
+				target_velocity = Vector2(0, 350) # Target velocity is only on the y axis (bounce upwards).
 				velocity = target_velocity.rotated(angle_to_collison)
-		else: # If the player is not moving use the target direction * a set speed to move away
+		else: # If the player is not moving, use the target direction * a set speed to move away.
 			velocity = target_direction * 300
 		
-		await get_tree().create_timer(0.15).timeout # Disable player input for this duration, then re-enable
+		await get_tree().create_timer(0.15).timeout # Disable player input for this duration, then re-enable.
 		player_input = true
 
 func on_took_damage():
@@ -143,5 +144,5 @@ func on_died():
 	player_died.emit()
 
 
-func emit_player_stopped_rolling(): # Emitted from the animation player and listened by the RollAbility
+func emit_player_stopped_rolling(): # Emitted from the animation player and listened by the RollAbility.
 	player_stopped_rolling.emit()

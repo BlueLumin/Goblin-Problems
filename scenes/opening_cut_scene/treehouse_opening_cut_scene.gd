@@ -1,3 +1,4 @@
+# Handles the second opening cut scene (focus on the gnome noticing the water is off).
 extends Node
 
 var scene_manager : SceneManager

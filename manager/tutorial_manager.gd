@@ -1,3 +1,4 @@
+# Manages the pop-up tutorials.
 extends Node
 class_name TutorialManager
 

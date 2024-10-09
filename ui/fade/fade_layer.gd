@@ -1,3 +1,4 @@
+# Handles the fading between scene changes.
 extends CanvasLayer
 class_name FadeLayer
 

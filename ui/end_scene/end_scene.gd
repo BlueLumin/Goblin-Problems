@@ -1,3 +1,4 @@
+# Handles displaying data based on win or lose conditions at the end of the game.
 extends CanvasLayer
 
 @onready var background_colour: ColorRect = $BackgroundColour

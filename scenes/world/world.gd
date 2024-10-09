@@ -1,3 +1,4 @@
+# The root script for the World node.
 extends Node
 
 var scene_manager: SceneManager

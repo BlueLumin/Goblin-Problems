@@ -1,3 +1,4 @@
+# Handles the Player's jump.
 extends Node
 class_name JumpController
 
@@ -24,7 +25,7 @@ func _ready() -> void:
 	
 	GameEvents.double_jump_gained.connect(on_double_jump_gained)
 	
-	jump_velocity *= -1 # Make the jump velocity a negitive number
+	jump_velocity *= -1 # Make the jump velocity a negative number.
 	jump_window_timer.timeout.connect(on_jump_window_timer_timeout)
 
 
@@ -47,10 +48,10 @@ func add_gravity(delta):
 func check_if_on_floor():
 	if on_floor != player.is_on_floor():
 		if on_floor == false:
-			jump_count = 0 # Reset jump count when landing on the ground
+			jump_count = 0 # Reset jump count when landing on the ground.
 			just_landed.emit()
 		if on_floor == true and jump_count == 0:
-			jump_window_timer.start() # If we leave the ground without jumping, start the timer
+			jump_window_timer.start() # If the player leaves the ground without jumping, start the timer.
 			just_left_floor.emit()
 	on_floor = player.is_on_floor()
 

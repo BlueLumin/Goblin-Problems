@@ -1,3 +1,4 @@
+# Handles removing notifications and the fade tween.
 extends Label
 
 

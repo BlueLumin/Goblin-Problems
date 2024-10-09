@@ -1,3 +1,4 @@
+# Handles opening links through RichTextLabel nodes.
 extends RichTextLabel
 
 

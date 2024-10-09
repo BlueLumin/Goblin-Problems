@@ -1,3 +1,4 @@
+# Handles the metadata and animation for collectable resources.
 extends Node2D
 class_name CollectableResource
 

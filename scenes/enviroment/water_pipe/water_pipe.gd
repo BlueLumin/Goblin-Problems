@@ -1,3 +1,4 @@
+# Handles the interaction and state of the water pipe.
 extends Node2D
 
 @onready var tape_fix_sprite: Sprite2D = $TapeFixSprite

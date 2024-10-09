@@ -1,3 +1,5 @@
+# The primary script for the Goblin Enemy.
+# Handles linking children components and animations.
 extends CharacterBody2D
 
 @onready var health_component: HealthComponent = $HealthComponent

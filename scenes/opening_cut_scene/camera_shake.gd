@@ -1,3 +1,4 @@
+# Controls the camera shake.
 extends Camera2D
 
 var random_strength: float = 10.0
